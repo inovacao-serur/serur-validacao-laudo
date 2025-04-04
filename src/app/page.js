@@ -71,8 +71,7 @@ export default function Home() {
   const Cadastro = () => {
     return (
       <>
-        <div className="w-sm h-xs border-0 border-gray-300 rounded-lg px-8 pt-8 pb-11"
-          style={{ boxShadow: '0px 4px 6px 0px rgba(0, 0, 0, 0.10), 0px 10px 15px 0px rgba(0, 0, 0, 0.10)' }}>
+        <div className= "w-screen h-auto px-4 xs:w-sm xs:h-xs mt-6 xt:mt-8 2xl:mt-10 ">
 
           <div className="grid w-full max-w-sm items-center gap-1.5 relative">
             <Label htmlFor="nome" className="font-normal">Nome completo</Label>
@@ -86,7 +85,7 @@ export default function Home() {
             <Input type="nome" id="nome" placeholder="Seu nome completo" className="!text-base pl-10 py-5" />
           </div>
 
-          <div className="grid w-full max-w-sm items-center gap-1.5 mt-6 relative">
+          <div className="grid w-full max-w-sm items-center gap-1.5 mt-4 relative xs:mt-6">
             <Label htmlFor="email" className="font-normal">Email</Label>
             <Image
               src="/email.svg"
@@ -98,7 +97,7 @@ export default function Home() {
             <Input type="email" id="email" placeholder="seu@email.com" className="!text-base pl-10 py-5" />
           </div>
 
-          <div className="grid w-full max-w-sm items-center gap-1.5 mt-6 relative">
+          <div className="grid w-full max-w-sm items-center gap-1.5 mt-4 relative xs:mt-6">
             <Label htmlFor="senha" className="font-normal" >Senha</Label>
             <Image
               src="/senha.svg"
@@ -107,10 +106,10 @@ export default function Home() {
               alt="logo senha"
               className="absolute left-3 mt-5"
             />
-            <Input type="password" id="senha" placeholder="••••••••" className="!text-base pl-10 py-5" />
+            <Input type="password" id="senha" placeholder="••••••••" className="!text-base pl-10 py-5 " />
           </div>
 
-          <div className="grid w-full max-w-sm items-center gap-1.5 mt-6 relative">
+          <div className="grid w-full max-w-sm items-center gap-1.5 mt-4 relative xs:mt-6">
             <Label htmlFor="confsenha" className="font-normal" >Confirme a senha</Label>
             <Image
               src="/senha.svg"
@@ -122,7 +121,7 @@ export default function Home() {
             <Input type="password" id="confsenha" placeholder="••••••••" className="!text-base pl-10 py-5" />
           </div>
 
-          <div className="grid w-full max-w-sm items-center gap-1.5 mt-6 relative">
+          <div className="grid w-full max-w-sm items-center gap-1.5 mt-4 relative xs:mt-6">
             <Label htmlFor="token" className="font-normal" >Token de acesso</Label>
             <Image
               src="/senha.svg"
@@ -134,7 +133,7 @@ export default function Home() {
             <Input type="token" id="token" placeholder="Digite o token de acesso" className="!text-base pl-10 py-5" />
           </div>
 
-          <div className="flex justify-between items-center mt-6">
+          <div className="flex justify-between items-center mt-4 xs:mt-6">
             <div className="flex items-center space-x-2">
               <Checkbox id="terms2" />
               <label htmlFor="terms2" className="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 font-normal text-gray-400">
@@ -144,13 +143,13 @@ export default function Home() {
 
           </div>
 
-          <div className="w-full flex justify-center mt-6">
+          <div className="w-full flex justify-center mt-[5%] xs:mb-[5%]">
             <Button className="w-full">Criar conta</Button>
           </div>
 
         </div>
 
-        <div className="mt-6">
+        <div className="mt-1 mb-3">
           <p className="font-normal text-sm text-gray-400">Já tem uma conta?
             <a className="text-black pl-1 cursor-pointer" onClick={() => setTemLogin(true)}> Fazer login</a>
           </p>
@@ -160,20 +159,20 @@ export default function Home() {
   }
 
   return (
-    <main className="w-screen h-screen flex justify-center items-center flex-col">
-      <div className="flex justify-center items-center flex-col mb-8">
+    <main className="w-screen h-screen flex justify-center items-center flex-col ">
+      <div className="flex justify-center items-center flex-col xs:mb-0  ">
         <Image
           src="/docverify.png"
           width={350}
           height={30}
           alt="logo doc verify"
         />
-        <h1 className="pt-3 text-xl text-gray-700 font-normal">Acesse sua conta</h1>
+        <h1 className="text-xl text-gray-700 font-normal">Acesse sua conta</h1>
       </div>
       {temLogin ? (
-        <Login />
+        <Login/>
       ) : (
-        <Cadastro />
+        <Cadastro/>
       )}
 
     </main>
