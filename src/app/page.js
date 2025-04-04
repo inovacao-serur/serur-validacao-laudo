@@ -160,7 +160,7 @@ export default function Home() {
 
   return (
     <main className="w-screen h-screen flex justify-center items-center flex-col ">
-      <div className="flex justify-center items-center flex-col xs:mb-0  ">
+      <div className="flex justify-center items-center flex-col xs:mb-0 xt:mb-10 ">
         <Image
           src="/docverify.png"
           width={350}
