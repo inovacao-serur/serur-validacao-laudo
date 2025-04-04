@@ -17,7 +17,7 @@ export default function Login() {
         />
         <h1 className="pt-3 text-xl text-gray-700 font-normal">Acesse sua conta</h1>
       </div>
-      <div className="w-sm h-xs border-0 border-gray-300 rounded-lg shadow-2xl px-8 pt-8 pb-11">
+      <div className="w-sm h-xs border-0 border-gray-300 rounded-lg px-8 pt-8 pb-11 "  style={{boxShadow: '0px 4px 6px 0px rgba(0, 0, 0, 0.10), 0px 10px 15px 0px rgba(0, 0, 0, 0.10)'}}>
 
         <div className="grid w-full max-w-sm items-center gap-1.5 relative">
           <Label htmlFor="email" className="font-normal">Email</Label>
