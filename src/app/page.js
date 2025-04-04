@@ -39,7 +39,7 @@ export default function Home() {
               alt="logo senha"
               className="absolute left-3 mt-5"
             />
-            <Input type="senha" id="senha" placeholder="••••••••" className="!text-base pl-10 py-5" />
+            <Input type="password" id="senha" placeholder="••••••••" className="!text-base pl-10 py-5" />
           </div>
 
           <div className="flex justify-between items-center mt-6">
@@ -107,7 +107,7 @@ export default function Home() {
               alt="logo senha"
               className="absolute left-3 mt-5"
             />
-            <Input type="senha" id="senha" placeholder="••••••••" className="!text-base pl-10 py-5" />
+            <Input type="password" id="senha" placeholder="••••••••" className="!text-base pl-10 py-5" />
           </div>
 
           <div className="grid w-full max-w-sm items-center gap-1.5 mt-6 relative">
@@ -119,7 +119,7 @@ export default function Home() {
               alt="logo senha"
               className="absolute left-3 mt-5"
             />
-            <Input type="senha" id="confsenha" placeholder="••••••••" className="!text-base pl-10 py-5" />
+            <Input type="password" id="confsenha" placeholder="••••••••" className="!text-base pl-10 py-5" />
           </div>
 
           <div className="grid w-full max-w-sm items-center gap-1.5 mt-6 relative">
