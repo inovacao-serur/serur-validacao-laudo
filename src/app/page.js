@@ -16,7 +16,7 @@ export default function Login() {
         />
         <h1>Acesse sua conta</h1>
       </div>
-      <div className="w-sm h-xs border-1 border-gray-300 rounded-lg shadow-2xl px-8 pt-8 pb-11">
+      <div className="w-sm h-xs border-0 border-gray-300 rounded-lg shadow-2xl px-8 pt-8 pb-11">
 
         <div className="grid w-full max-w-sm items-center gap-1.5">
           <Label htmlFor="email" className="font-normal">Email</Label>
