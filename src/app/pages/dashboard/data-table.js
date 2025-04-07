@@ -22,6 +22,16 @@ import {
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 
+import {
+    Pagination,
+    PaginationContent,
+    PaginationEllipsis,
+    PaginationItem,
+    PaginationLink,
+    PaginationNext,
+    PaginationPrevious,
+} from "@/components/ui/pagination"
+
 export function DataTable({ columns, data }) {
     const [sorting, setSorting] = useState([])
 
@@ -33,11 +43,15 @@ export function DataTable({ columns, data }) {
         onSortingChange: setSorting,
         getSortedRowModel: getSortedRowModel(),
         state: {
-          sorting,
+            sorting,
         },
     })
 
-   
+    const pageIndex = table.getState().pagination.pageIndex;
+    const pageCount = table.getPageCount();
+
+
+
 
     return (
         <div className="rounded-b-md border">
@@ -85,7 +99,7 @@ export function DataTable({ columns, data }) {
                 </TableBody>
             </Table>
 
-            <div className="flex items-center justify-end space-x-2 py-4">
+            {/* <div className="flex items-center justify-end space-x-2 py-4">
                 <Button
                     variant="outline"
                     size="sm"
@@ -102,7 +116,37 @@ export function DataTable({ columns, data }) {
                 >
                    Próximo
                 </Button>
-            </div>
+            </div> */}
+
+            <Pagination className=" bg-white py-4 pr-4 flex justify-end items-center border-t border-gray-300 rounded-b-md">
+
+                <PaginationContent>
+
+                    <PaginationItem>
+                        <Button
+                            onClick={() => table.previousPage()}
+                            className="bg-white text-black border-1 border-gray-100"
+                        >Anterior</Button>
+                    </PaginationItem>
+
+                    {table.getPageOptions().map((index) => (
+                        <PaginationItem key={index}>
+                            <PaginationLink onClick={() => table.setPageIndex(index)} isActive={index === pageIndex}>{index + 1}</PaginationLink>
+                        </PaginationItem>
+                    ))}
+
+
+                    <PaginationItem>
+                        <Button
+                            onClick={() => table.nextPage()}
+                            className="bg-white text-black border-1 border-gray-100"
+                        >Próximo</Button>
+                    </PaginationItem>
+
+                </PaginationContent>
+            </Pagination>
+
+
         </div>
     )
 }
