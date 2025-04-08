@@ -47,8 +47,13 @@ export function DataTable({ columns, data }) {
         },
     })
 
-    const pageIndex = table.getState().pagination.pageIndex;
-    const pageCount = table.getPageCount();
+    const allPages = table.getPageOptions();
+    const currentPage = table.getState().pagination.pageIndex;
+
+    const visiblePages = allPages.slice(
+        Math.max(0, Math.min(currentPage - 1, allPages.length - 3)),
+        Math.min(allPages.length, currentPage + 2)
+    );
 
 
 
@@ -125,21 +130,44 @@ export function DataTable({ columns, data }) {
                     <PaginationItem>
                         <Button
                             onClick={() => table.previousPage()}
-                            className="bg-white text-black border-1 border-gray-100"
+                            className="bg-white text-black border-1 border-gray-100 hover:bg-white cursor-pointer"
                         >Anterior</Button>
                     </PaginationItem>
 
-                    {table.getPageOptions().map((index) => (
-                        <PaginationItem key={index}>
-                            <PaginationLink onClick={() => table.setPageIndex(index)} isActive={index === pageIndex}>{index + 1}</PaginationLink>
-                        </PaginationItem>
-                    ))}
+                    {(() => {
+                        const totalPages = table.getPageCount();
+                        const currentPage = table.getState().pagination.pageIndex;
+                        const pageWindow = 3;
+
+                        let start = Math.max(currentPage - Math.floor(pageWindow / 2), 0);
+                        let end = start + pageWindow;
+
+                        if (end > totalPages) {
+                            end = totalPages;
+                            start = Math.max(end - pageWindow, 0);
+                        }
+
+                        return Array.from({ length: end - start }, (_, i) => {
+                            const pageIndex = start + i;
+                            return (
+                                <PaginationItem key={pageIndex}>
+                                    <PaginationLink
+                                        onClick={() => table.setPageIndex(pageIndex)}
+                                        isActive={pageIndex === currentPage}
+                                        className="cursor-pointer"
+                                    >
+                                        {pageIndex + 1}
+                                    </PaginationLink>
+                                </PaginationItem>
+                            );
+                        });
+                    })()}
 
 
                     <PaginationItem>
                         <Button
                             onClick={() => table.nextPage()}
-                            className="bg-white text-black border-1 border-gray-100"
+                            className="bg-white text-black border-1 border-gray-100 hover:bg-white cursor-pointer"
                         >Próximo</Button>
                     </PaginationItem>
 
