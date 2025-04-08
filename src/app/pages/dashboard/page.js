@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 
 import { Payment, columns } from "./columns"
 import { DataTable } from "./data-table"
+import Link from "next/link";
 
 
 async function getData() {
@@ -337,7 +338,9 @@ export default async function Dashboard() {
 
                 <div className="w-full h-full flex justify-between items-center pt-8">
                     <h1 className="text-base font-normal">Dashboard</h1>
-                    <Button>+ Nova Análise</Button>
+                    <Link href="/pages/analise">
+                        <Button>+ Nova Análise</Button>
+                    </Link>
                 </div>
 
                 <div className="w-full mt-8 py-2 pl-4 bg-white border-1 border-gray-300 rounded-t-md">
