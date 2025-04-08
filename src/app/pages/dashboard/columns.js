@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { ColumnDef } from "@tanstack/react-table"
 import { ArrowUpDown } from "lucide-react"
+import Image from "next/image"
 
 export const columns = [
     {
@@ -79,16 +80,34 @@ export const columns = [
         }
     },
     {
-        accessorKey: "amount",
-        header: "Amount",
-        cell: ({ row }) => {
-            const amount = parseFloat(row.getValue("amount"))
-            const formatted = new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD",
-            }).format(amount)
-            return <div className="font-medium">{formatted}</div>
+        accessorKey: 'acao',
+        header: "Ações",
+        cell: ({}) => {
+            return(
+                <div className="cursor-pointer">
+                    <Image
+                    src="/dots.svg"
+                    width={4}
+                    height={16}
+                    alt="pontos"
+                     />
+                </div>
+            )
         }
+    }
 
-    },
+
+    // {
+    //     accessorKey: "amount",
+    //     header: "Amount",
+    //     cell: ({ row }) => {
+    //         const amount = parseFloat(row.getValue("amount"))
+    //         const formatted = new Intl.NumberFormat("en-US", {
+    //             style: "currency",
+    //             currency: "USD",
+    //         }).format(amount)
+    //         return <div className="font-medium">{formatted}</div>
+    //     }
+
+    // },
 ]
