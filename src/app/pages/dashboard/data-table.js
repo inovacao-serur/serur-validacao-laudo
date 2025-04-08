@@ -129,6 +129,7 @@ export function DataTable({ columns, data }) {
                     <PaginationItem>
                         <Button
                             onClick={() => table.previousPage()}
+                            disabled={!table.getCanPreviousPage()}
                             className="bg-white text-black border-1 border-gray-100 hover:bg-white cursor-pointer"
                         >Anterior</Button>
                     </PaginationItem>
@@ -166,6 +167,7 @@ export function DataTable({ columns, data }) {
                     <PaginationItem>
                         <Button
                             onClick={() => table.nextPage()}
+                            disabled={!table.getCanNextPage()}
                             className="bg-white text-black border-1 border-gray-100 hover:bg-white cursor-pointer"
                         >Próximo</Button>
                     </PaginationItem>
