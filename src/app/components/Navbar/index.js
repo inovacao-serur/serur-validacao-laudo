@@ -4,7 +4,7 @@ import sino from '../../assets/navbar/sino.svg'
 
 export default function Navbar() {
     return (
-        <header className="w-screen h-16 px-3 border-1 border-gray-300 rounded-t-lg">
+        <header className="w-screen h-16 px-3 border-1 border-gray-300 rounded-t-lg lg:px-20">
             <div className="w-full h-full flex justify-between items-center">
 
                 <Image

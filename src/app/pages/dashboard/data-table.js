@@ -65,7 +65,7 @@ export function DataTable({ columns, data }) {
                         <TableRow key={headerGroup.id}>
                             {headerGroup.headers.map((header) => {
                                 return (
-                                    <TableHead key={header.id}>
+                                    <TableHead key={header.id} className="lg:py-2">
                                         {header.isPlaceholder
                                             ? null
                                             : flexRender(
@@ -82,12 +82,12 @@ export function DataTable({ columns, data }) {
                     {table.getRowModel().rows?.length ? (
                         table.getRowModel().rows.map((row) => (
                             <TableRow
-                                className="bg-white"
+                                className=" bg-white"
                                 key={row.id}
                                 data-state={row.getIsSelected() && "selected"}
                             >
                                 {row.getVisibleCells().map((cell) => (
-                                    <TableCell key={cell.id}>
+                                    <TableCell key={cell.id} className="lg:py-4">
                                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                                     </TableCell>
                                 ))}

@@ -59,6 +59,9 @@ export const columns = [
                     <ArrowUpDown className="ml-2 h-4 w-4" />
                 </Button>
             )
+        },
+        cell: ({row}) => {
+            return <div className="bg-gray-200 rounded-lg max-w-max px-1">{row.getValue("status")}</div>
         }
     },
     {

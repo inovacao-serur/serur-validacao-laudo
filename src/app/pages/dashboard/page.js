@@ -11,64 +11,64 @@ async function getData() {
         {
             id: "#12345",
             nome: "João Silva",
-            tipo: "Digital",
-            status: "Em Análise",
+            tipo: "Física",
+            status: "Concluído",
             data: "15/02/2025",
             amount: 100,
         },
         {
             id: "#22345",
             nome: "Alice Silva",
-            tipo: "Digital",
-            status: "Em Análise",
+            tipo: "Física",
+            status: "Concluído",
             data: "15/01/2025",
             amount: 100,
         },
         {
             id: "#32345",
             nome: "Daniel",
-            tipo: "Digital",
-            status: "Em Análise",
+            tipo: "Física",
+            status: "Concluído",
             data: "15/01/2024",
             amount: 100,
         },
         {
             id: "#12345",
             nome: "João Silva",
-            tipo: "Digital",
-            status: "Em Análise",
+            tipo: "Física",
+            status: "Concluído",
             data: "15/02/2025",
             amount: 100,
         },
         {
             id: "#22345",
             nome: "Alice Silva",
-            tipo: "Digital",
-            status: "Em Análise",
+            tipo: "Física",
+            status: "Concluído",
             data: "15/01/2025",
             amount: 100,
         },
         {
             id: "#32345",
             nome: "Daniel",
-            tipo: "Digital",
-            status: "Em Análise",
+            tipo: "Física",
+            status: "Concluído",
             data: "15/01/2024",
             amount: 100,
         },
         {
             id: "#12345",
             nome: "João Silva",
-            tipo: "Digital",
-            status: "Em Análise",
+            tipo: "Física",
+            status: "Concluído",
             data: "15/02/2025",
             amount: 100,
         },
         {
             id: "#22345",
             nome: "Alice Silva",
-            tipo: "Digital",
-            status: "Em Análise",
+            tipo: "Física",
+            status: "Concluído",
             data: "15/01/2025",
             amount: 100,
         },
@@ -76,7 +76,7 @@ async function getData() {
             id: "#32345",
             nome: "Daniel",
             tipo: "Digital",
-            status: "Em Análise",
+            status: "Concluído",
             data: "15/01/2024",
             amount: 100,
         },
@@ -333,7 +333,7 @@ export default async function Dashboard() {
     return (
         <>
             <Navbar />
-            <section className="w-screen h-full px-3 bg-gray-50">
+            <section className="w-screen h-full px-3 bg-gray-50 lg:px-20">
 
                 <div className="w-full h-full flex justify-between items-center pt-8">
                     <h1 className="text-base font-normal">Dashboard</h1>
