@@ -347,6 +347,18 @@ export default async function Dashboard() {
                     <DataTable columns={columns} data={data} />
                 </div>
 
+                <footer className="flex justify-between bg-white text-gray-500 gap-2.5 items-center pt-1.5">
+                    <p className="text-sm text-gray-400">
+                        © 2025 DocVerify. Todos os direitos reservados.
+                    </p>
+
+                    <ul className="text-sm sm:flex gap-4 mt-4 font-normal sm:text-base mb-4 cursor-pointer">
+                        <li>Termos</li>
+                        <li>Privacidade</li>
+                        <li>Suporte</li>
+                    </ul>
+                </footer>
+
 
 
             </section>
