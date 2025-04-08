@@ -34,6 +34,7 @@ import {
 
 export function DataTable({ columns, data }) {
     const [sorting, setSorting] = useState([])
+    const [page, setPage] = useState(null)
 
     const table = useReactTable({
         data,
@@ -47,14 +48,12 @@ export function DataTable({ columns, data }) {
         },
     })
 
-    const allPages = table.getPageOptions();
-    const currentPage = table.getState().pagination.pageIndex;
-
-    const visiblePages = allPages.slice(
-        Math.max(0, Math.min(currentPage - 1, allPages.length - 3)),
-        Math.min(allPages.length, currentPage + 2)
-    );
-
+    const pageIndex = table.getState().pagination.pageIndex;
+    const pageSize = table.getState().pagination.pageSize;
+    const rowCount = table.getFilteredRowModel().rows.length;
+    
+    const start = pageIndex * pageSize;
+    const end = Math.min((pageIndex + 1) * pageSize, rowCount);
 
 
 
@@ -123,7 +122,7 @@ export function DataTable({ columns, data }) {
                 </Button>
             </div> */}
 
-            <Pagination className=" bg-white py-4 pr-4 flex justify-end items-center border-t border-gray-300 rounded-b-md">
+            <Pagination className=" bg-white py-4 pr-4 flex justify-end items-center border-t border-gray-300 rounded-b-md flex-col lg:flex-row-reverse lg:justify-between">
 
                 <PaginationContent>
 
@@ -172,6 +171,10 @@ export function DataTable({ columns, data }) {
                     </PaginationItem>
 
                 </PaginationContent>
+
+                <p className="text-sm text-muted-foreground pt-1.5 lg:pl-4">
+                    Mostrando {start }–{end} de {rowCount} resultados
+                </p>
             </Pagination>
 
 
