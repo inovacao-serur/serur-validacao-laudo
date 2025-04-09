@@ -47,11 +47,12 @@ export default function Analise() {
                     </div>
                 </div>
 
-                <div className="bg-white mt-5 px-2 pt-4 rounded-md" style={{ boxShadow: '0px 4px 6px 0px rgba(0, 0, 0, 0.10), 0px 10px 15px 0px rgba(0, 0, 0, 0.10)' }}>
+                <div className="bg-white mt-8 px-2 pt-4 rounded-md xs:mt-15" 
+                style={{ boxShadow: '0px 4px 6px 0px rgba(0, 0, 0, 0.10), 0px 10px 15px 0px rgba(0, 0, 0, 0.10)' }}>
                     <h2>Tipo de Formalização</h2>
 
                     <div className="flex justify-between items-center gap-2 mt-5">
-                        <div className="border-1 border-gray-300 w-full rounded-md h-36">
+                        <div className="border-1 border-gray-300 w-full rounded-md h-36 lg:h-29">
 
                             <div className="flex items-center mt-5 mb-3 ml-3">
                                 <Checkbox id="terms" className="rounded-md" />
@@ -66,7 +67,7 @@ export default function Analise() {
 
                         </div>
 
-                        <div className="border-1 border-gray-300 w-full rounded-md h-36">
+                        <div className="border-1 border-gray-300 w-full rounded-md h-36 lg:h-29">
 
                             <div className="flex items-center mt-5 mb-3 ml-3">
                                 <Checkbox id="terms" className="rounded-md" />
@@ -89,7 +90,8 @@ export default function Analise() {
                 </div>
                 <div className="flex-1" />
 
-                <div className="w-screen -mx-3 mb-5 bg-white flex px-3 text-sm justify-between gap-2 lg:-mx-20">
+                <footer className="w-screen -mx-3 mb-7 bg-white flex px-3 text-sm justify-between gap-2 text-gray-500 border-t-1 border-t-gray-300 
+                xz:h-18 items-center lg:-mx-20 lg:px-20 lg:mb-15">
                     <p>© 2025 DocVerify. Todos os direitos reservados.</p>
 
                     <ul className="xs:flex gap-3">
@@ -97,7 +99,7 @@ export default function Analise() {
                         <li>Privacidade</li>
                         <li>Suporte</li>
                     </ul>
-                </div>
+                </footer>
 
             </section>
         </>
