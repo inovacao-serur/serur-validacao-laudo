@@ -2,6 +2,7 @@ import Navbar from "@/app/components/Navbar";
 import Image from "next/image";
 import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Analise() {
     return (
@@ -84,8 +85,12 @@ export default function Analise() {
                     </div>
 
                     <div className="w-full flex justify-between items-center mt-7 border-t-1 border-t-gray-300 pb-3 pt-2">
-                        <Button className="bg-white text-[var(--color-azul-escuro)] border-1 border-gray-300">Cancelar</Button>
-                        <Button>Próximo</Button>
+                        <Link href="/pages/dashboard">
+                        <Button className="bg-white text-[var(--color-azul-escuro)] border-1 border-gray-300">
+                            Cancelar
+                        </Button>
+                        </Link>
+                        <Link href="/pages/analisedocs"><Button>Próximo</Button></Link>
                     </div>
                 </div>
                 <div className="flex-1" />
@@ -106,4 +111,3 @@ export default function Analise() {
     )
 }
 
-//xz:bg-black text-white py-1.5 px-3 rounded-4xl text-center
