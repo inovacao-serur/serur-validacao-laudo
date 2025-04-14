@@ -3,12 +3,48 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from "@/components/ui/button"
+import { signIn } from "next-auth/react";
 import Image from 'next/image'
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 
 const Login: React.FC = () => {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const router = useRouter();
+  async function login(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    console.log(email, password);
+
+    try {
+      const signInData = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+        callbackUrl: "/dashboard",
+      });
+
+      console.log(signInData);
+
+      if (signInData?.error) {
+        console.error(signInData.error);
+      } else {
+        console.log("Acesso realizado com sucesso.");
+        router.push("/dashboard");
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  function setTemLogin(arg0: boolean): void {
+    throw new Error("Function not implemented.")
+  }
+
   return (
-    <>
+    <form onSubmit={login}>
       <div className="w-sm h-xs border-0 border-gray-300 rounded-lg px-8 pt-8 pb-11"
         style={{ boxShadow: '0px 4px 6px 0px rgba(0, 0, 0, 0.10), 0px 10px 15px 0px rgba(0, 0, 0, 0.10)' }}>
 
@@ -21,11 +57,11 @@ const Login: React.FC = () => {
             alt="logo email"
             className="absolute left-3 mt-5"
           />
-          <Input type="email" id="email" placeholder="seu@email.com" className="!text-base pl-10 py-5" />
+          <Input type="email" id="email" placeholder="seu@email.com" className="!text-base pl-10 py-5" value={email} onChange={(e) => setEmail(e.target.value)} />
         </div>
 
         <div className="grid w-full max-w-sm items-center gap-1.5 mt-6 relative">
-          <Label htmlFor="senha" className="font-normal" >Senha</Label>
+          <Label htmlFor="senha" className="font-normal">Senha</Label>
           <Image
             src="/senha.svg"
             width={16}
@@ -33,7 +69,7 @@ const Login: React.FC = () => {
             alt="logo senha"
             className="absolute left-3 mt-5"
           />
-          <Input type="password" id="senha" placeholder="••••••••" className="!text-base pl-10 py-5" />
+          <Input type="password" id="senha" placeholder="••••••••" className="!text-base pl-10 py-5" value={password} onChange={(e) => setPassword(e.target.value)} />
         </div>
 
         <div className="flex justify-between items-center mt-6">
@@ -44,25 +80,29 @@ const Login: React.FC = () => {
             </label>
           </div>
 
-          <p className="font-normal text-sm text-[var(--color-azul-escuro)] cursor-pointer">Esqueceu a senha ?</p>
+          <p className="font-normal text-sm text-[var(--color-azul-escuro)] cursor-pointer">Esqueceu a senha?</p>
         </div>
 
         <div className="w-full flex justify-center mt-6">
-          <Button className="w-full">Enviar</Button>
+          <Button className="w-full cursor-pointer" type="submit">Enviar</Button>
         </div>
 
       </div>
 
       <div className="mt-6">
         <p className="font-normal text-sm text-gray-400">Não tem uma conta?
-          <a className="text-black pl-1 cursor-pointer" onClick={() => setTemLogin(false)}> Criar conta</a>
+          <a className="text-black pl-1 cursor-pointer" onClick={() => setTemLogin(false)}>Criar conta</a>
         </p>
       </div>
-    </>
+    </form>
   )
 }
 
 const Cadastro: React.FC = () => {
+  function setTemLogin(arg0: boolean): void {
+    throw new Error("Function not implemented.")
+  }
+
   return (
     <>
       <div className="w-screen h-auto px-4 xs:w-sm xs:h-xs mt-6 xt:mt-8 2xl:mt-10 ">
@@ -145,7 +185,7 @@ const Cadastro: React.FC = () => {
 
       <div className="mt-1 mb-3">
         <p className="font-normal text-sm text-gray-400">Já tem uma conta?
-          <a className="text-black pl-1 cursor-pointer" onClick={() => setTemLogin(true)}> Fazer login</a>
+            <a className="text-black pl-1 cursor-pointer" onClick={() => setTemLogin(true)}> Fazer login</a>
         </p>
       </div>
     </>
