@@ -1,4 +1,4 @@
-import Navbar from "@/app/components/Navbar";
+import Navbar from "@/components/customComponents/Navbar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -146,7 +146,7 @@ export default function AnaliseUpload() {
                     </div>
 
                     <div className="w-full flex justify-between items-center mt-7 border-t-1 border-t-gray-300 pb-3 pt-2">
-                        <Link href="/pages/analise">
+                        <Link href="/analise">
                             <Button className="bg-white text-[var(--color-azul-escuro)] border-1 border-gray-300">
                                 Cancelar
                             </Button>

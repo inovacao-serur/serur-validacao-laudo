@@ -8,7 +8,7 @@ import Image from "next/image"
 export const columns = [
     {
         accessorKey: "id",
-        header: ({ column }) => {
+        header: ({ column }: { column: any }) => {
             return (
                 <Button
                     variant="ghost"
@@ -22,7 +22,7 @@ export const columns = [
     },
     {
         accessorKey: "nome",
-        header: ({ column }) => {
+        header: ({ column }: { column: any }) => {
             return (
                 <Button
                     variant="ghost"
@@ -36,7 +36,7 @@ export const columns = [
     },
     {
         accessorKey: "tipo",
-        header: ({ column }) => {
+        header: ({ column }: { column: any }) => {
             return (
                 <Button
                     variant="ghost"
@@ -50,7 +50,7 @@ export const columns = [
     },
     {
         accessorKey: "status",
-        header: ({ column }) => {
+        header: ({ column }: { column: any }) => {
             return (
                 <Button
                     variant="ghost"
@@ -61,13 +61,13 @@ export const columns = [
                 </Button>
             )
         },
-        cell: ({row}) => {
+        cell: ({row}: {row: any}) => {
             return <div className="bg-gray-200 rounded-lg max-w-max px-1">{row.getValue("status")}</div>
         }
     },
     {
         accessorKey: "data",
-        header: ({ column }) => {
+        header: ({ column }: { column: any }) => {
             return (
                 <Button
                     variant="ghost"

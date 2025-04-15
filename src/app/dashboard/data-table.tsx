@@ -8,6 +8,7 @@ import {
     getSortedRowModel,
     useReactTable,
     getPaginationRowModel,
+    OnChangeFn,
 } from "@tanstack/react-table"
 
 import {
@@ -32,7 +33,7 @@ import {
     PaginationPrevious,
 } from "@/components/ui/pagination"
 
-export function DataTable({ columns, data }) {
+export function DataTable({ columns, data }: { columns: ColumnDef<any>[], data: any[] }) {
     const [sorting, setSorting] = useState([])
     const [page, setPage] = useState(null)
 
@@ -41,7 +42,7 @@ export function DataTable({ columns, data }) {
         columns,
         getCoreRowModel: getCoreRowModel(),
         getPaginationRowModel: getPaginationRowModel(),
-        onSortingChange: setSorting,
+        onSortingChange: setSorting as OnChangeFn<SortingState>,
         getSortedRowModel: getSortedRowModel(),
         state: {
             sorting,
@@ -59,10 +60,10 @@ export function DataTable({ columns, data }) {
 
     return (
         <div className="rounded-b-md border">
-            <Table>
-                <TableHeader>
+            <Table className={undefined}>
+                <TableHeader className={undefined}>
                     {table.getHeaderGroups().map((headerGroup) => (
-                        <TableRow key={headerGroup.id}>
+                        <TableRow key={headerGroup.id} className={undefined}>
                             {headerGroup.headers.map((header) => {
                                 return (
                                     <TableHead key={header.id} className="lg:py-2">
@@ -78,7 +79,7 @@ export function DataTable({ columns, data }) {
                         </TableRow>
                     ))}
                 </TableHeader>
-                <TableBody>
+                <TableBody className={undefined}>
                     {table.getRowModel().rows?.length ? (
                         table.getRowModel().rows.map((row) => (
                             <TableRow
@@ -94,7 +95,7 @@ export function DataTable({ columns, data }) {
                             </TableRow>
                         ))
                     ) : (
-                        <TableRow>
+                        <TableRow className={undefined}>
                             <TableCell colSpan={columns.length} className="h-24 text-center">
                                 No results.
                             </TableCell>
@@ -124,7 +125,7 @@ export function DataTable({ columns, data }) {
 
             <Pagination className=" bg-white py-4 pr-4 flex justify-end items-center border-t border-gray-300 rounded-b-md flex-col lg:flex-row-reverse lg:justify-between">
 
-                <PaginationContent>
+                <PaginationContent className={undefined}>
 
                     <PaginationItem>
                         <Button

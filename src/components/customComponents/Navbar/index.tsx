@@ -21,9 +21,9 @@ export default function Navbar() {
                         height={18}
                         alt='sino'
                     />
-                    <Avatar>
-                        <AvatarImage src="/navbar/user-navbar.svg" />
-                        <AvatarFallback>CN</AvatarFallback>
+                    <Avatar className={undefined}>
+                        <AvatarImage src="/navbar/user-navbar.svg" className={undefined} />
+                        <AvatarFallback className={undefined}>CN</AvatarFallback>
                     </Avatar>
 
                 </div>
