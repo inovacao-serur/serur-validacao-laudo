@@ -8,7 +8,25 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function AnaliseUpload() {
-    const [files, setFiles] = useState({
+    type FileType = {
+        rgFrente: string,
+        rgVerso: string,
+        reclamanteFrente: string,
+        reclamanteVerso: string,
+        cnhFrente: string,
+        cnhVerso: string,
+        cnhFrenteRe: string,
+        cnhVersoRe: string,
+        assDocContrato: string,
+        assContrato: string,
+        assDocReclamante: string,
+        selfieDocContrato: string,
+        selfieContrato: string,
+        selfieDocReclamante: string
+    }
+    type FileKey = keyof FileType;
+
+    const [files, setFiles] = useState<FileType>({
         rgFrente: "",
         rgVerso: "",
         reclamanteFrente: "",
@@ -25,14 +43,14 @@ export default function AnaliseUpload() {
         selfieDocReclamante: ""
     });
 
-    const handleFileChange = (event, key) => {
+    const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>, key: FileKey) => {
         const file = event.target.files?.[0];
         if (file) {
             setFiles((prev) => ({ ...prev, [key]: file.name }));
         }
     };
 
-    const renderInputRgCnh = (label, key) => (
+    const renderInputRgCnh = (label: string, key: FileKey) => (
         <div>
             <h2 className="mb-1">{label}</h2>
             <div className="border-1 border-dashed border-gray-400 rounded-sm w-max flex items-center justify-center flex-col p-2 sm:w-full lg:py-5">
