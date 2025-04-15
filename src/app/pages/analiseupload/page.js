@@ -35,7 +35,15 @@ export default function AnaliseUpload() {
     const renderInputRgCnh = (label, key) => (
         <div>
             <h2 className="mb-1">{label}</h2>
-            <div className="border-1 border-dashed border-gray-400 rounded-sm w-max flex items-center justify-center flex-col p-2">
+            <div className="border-1 border-dashed border-gray-400 rounded-sm w-max flex items-center justify-center flex-col p-2 sm:w-full lg:py-5">
+
+                <Image
+                    src="/upload/upload.svg"
+                    width={37}
+                    height={30}
+                    alt="Nuvem de upload"
+                    className="hidden lg:block"
+                />
                 <label className="text-sm text-gray-800 cursor-pointer">
                     Arraste ou clique
                     <input
@@ -49,22 +57,6 @@ export default function AnaliseUpload() {
         </div>
     );
 
-    const renderInputAssinaturaSelfie = (label, key) => (
-        <div>
-            <h2 className="mb-1 text-sm">{label}</h2>
-            <div className="border-1 border-dashed border-gray-400 rounded-sm w-max flex items-center justify-center flex-col p-2">
-                <label className="text-sm text-gray-800 cursor-pointer">
-                    Arraste ou clique
-                    <input
-                        type="file"
-                        className="hidden"
-                        onChange={(e) => handleFileChange(e, key)}
-                    />
-                </label>
-                <span className="text-xs text-gray-600 mt-1">{files[key]}</span>
-            </div>
-        </div>
-    );
     return (
         <>
             <Navbar />
