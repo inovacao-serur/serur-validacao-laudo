@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import sino from '../../assets/navbar/sino.svg'
+import sino from '../../../assets/navbar/sino.svg'
+
 
 export default function Navbar() {
     return (
