@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgres"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  isFirstAccess Boolean @default(true)
+  role      Roles    @relation(fields: [roleId], references: [id])
+  roleId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+model Roles {
+  id        String   @id @default(uuid())
+  name      String
+  users     User[]
+  createdAt DateTime @default(now())
+}
+
+enum AnalysisType {
+  DIGITAL
+  FISICA
+}
+
+enum AnalysisStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model Analysis {
+  id               String   @id @default(uuid())
+  type             AnalysisType
+  rg               String?
+  cnh              String?
+  assinatura       String?
+  endereco         String?
+  selfie           String?
+  personName       String
+  isPersonLiterate Boolean
+  witnessName      String?
+  status           AnalysisStatus
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
