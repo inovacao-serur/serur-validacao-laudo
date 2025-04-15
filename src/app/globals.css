@@ -121,6 +121,7 @@
 
 @theme {
   --breakpoint-xs: 390px;
+  --breakpoint-xz: 480px;
   --breakpoint-xt: 1366px;
 }
 
