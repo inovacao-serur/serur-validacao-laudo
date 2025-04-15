@@ -12,7 +12,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`antialiased`}>
       <ClientSessionProvider>
-        <div className="max-w-[95%] mx-auto">
+        <div>
           {children}
         </div>
       </ClientSessionProvider>
