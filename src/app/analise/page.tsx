@@ -1,10 +1,14 @@
+"use client";
 import Navbar from "@/components/customComponents/Navbar";
 import Image from "next/image";
 import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useState } from "react";
+import { useDados } from "@/context/DadosContext";
 
 export default function Analise() {
+    const { isFisica, setIsFisica} = useDados()
     return (
         <>
             <Navbar />
@@ -48,17 +52,23 @@ export default function Analise() {
                     </div>
                 </div>
 
-                <div className="bg-white mt-8 px-2 pt-4 rounded-md xs:mt-15" 
-                style={{ boxShadow: '0px 4px 6px 0px rgba(0, 0, 0, 0.10), 0px 10px 15px 0px rgba(0, 0, 0, 0.10)' }}>
+                <div className="bg-white mt-8 px-2 pt-4 rounded-md xs:mt-15"
+                    style={{ boxShadow: '0px 4px 6px 0px rgba(0, 0, 0, 0.10), 0px 10px 15px 0px rgba(0, 0, 0, 0.10)' }}>
                     <h2>Tipo de Formalização</h2>
 
                     <div className="flex justify-between items-center gap-2 mt-5">
                         <div className="border-1 border-gray-300 w-full rounded-md h-36 lg:h-29">
 
                             <div className="flex items-center mt-5 mb-3 ml-3">
-                                <Checkbox id="terms" className="rounded-md" />
+                                <input
+                                    type="radio"
+                                    id="no"
+                                    name="option"
+                                    className="appearance-none w-3 h-3 rounded-full border-1 border-black checked:bg-black checked:border-black"
+                                    onClick={() => setIsFisica(true)}
+                                />
                                 <label
-                                    htmlFor="terms"
+                                    htmlFor="no"
                                     className="text-sm pl-2">
                                     Física
                                 </label>
@@ -71,9 +81,15 @@ export default function Analise() {
                         <div className="border-1 border-gray-300 w-full rounded-md h-36 lg:h-29">
 
                             <div className="flex items-center mt-5 mb-3 ml-3">
-                                <Checkbox id="terms" className="rounded-md" />
+                                <input
+                                    type="radio"
+                                    id="no"
+                                    name="option"
+                                    className="appearance-none w-3 h-3 rounded-full border-1 border-black checked:bg-black checked:border-black"
+                                    onClick={() => setIsFisica(false)}
+                                />
                                 <label
-                                    htmlFor="terms"
+                                    htmlFor="no"
                                     className="text-sm pl-2">
                                     Digital
                                 </label>
@@ -86,11 +102,11 @@ export default function Analise() {
 
                     <div className="w-full flex justify-between items-center mt-7 border-t-1 border-t-gray-300 pb-3 pt-2">
                         <Link href="/dashboard">
-                        <Button className="bg-white text-[var(--color-azul-escuro)] border-1 border-gray-300">
-                            Cancelar
-                        </Button>
+                            <Button className="bg-white text-[var(--color-azul-escuro)] border-1 border-gray-300" >
+                                Cancelar
+                            </Button>
                         </Link>
-                        <Link href="/analisedocs"><Button>Próximo</Button></Link>
+                        <Button><Link href="/analisedocs">Próximo</Link></Button>
                     </div>
                 </div>
                 <div className="flex-1" />

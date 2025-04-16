@@ -10,7 +10,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 export default function AnaliseInfo() {
-    const [isAnalfabeto, setIsAnalfabeto] = useState(false) 
+    const [isAnalfabeto, setIsAnalfabeto] = useState(false)
     return (
         <>
             <Navbar />
@@ -72,34 +72,34 @@ export default function AnaliseInfo() {
                                 <div className="flex items-center gap-4 mt-4">
 
                                     <div>
-                                        <input 
-                                        type="radio" 
-                                        id="no" 
-                                        name="option" 
-                                        className="appearance-none w-3 h-3 rounded-full border-1 border-black checked:bg-black checked:border-black" 
-                                        onClick={() => {
-                                            setIsAnalfabeto(false)
-                                        }}
+                                        <input
+                                            type="radio"
+                                            id="no"
+                                            name="option"
+                                            className="appearance-none w-3 h-3 rounded-full border-1 border-black checked:bg-black checked:border-black"
+                                            onClick={() => {
+                                                setIsAnalfabeto(false)
+                                            }}
                                         />
                                         <label className="pl-1">Não</label>
                                     </div>
 
                                     <div>
-                                        <input 
-                                        type="radio" 
-                                        id="no" 
-                                        name="option" 
-                                        className="appearance-none w-3 h-3 rounded-full border-1 border-black checked:bg-black checked:border-black" 
-                                        onClick={() => {
-                                            setIsAnalfabeto(true)
-                                        }}
+                                        <input
+                                            type="radio"
+                                            id="no"
+                                            name="option"
+                                            className="appearance-none w-3 h-3 rounded-full border-1 border-black checked:bg-black checked:border-black"
+                                            onClick={() => {
+                                                setIsAnalfabeto(true)
+                                            }}
                                         />
                                         <label className="pl-1">Sim</label>
                                     </div>
 
                                 </div>
 
-                                
+
 
                                 <div className={`w-full items-center gap-1.5 mt-7 ${isAnalfabeto ? "grid" : "hidden"}`}>
                                     <Label className="font-normal" htmlFor="nome">Nome da Testemunha</Label>
@@ -118,12 +118,11 @@ export default function AnaliseInfo() {
                     </div>
 
                     <div className="w-full flex justify-between items-center mt-7 border-t-1 border-t-gray-300 pb-3 pt-2">
-                        <Link href="/analise">
-                            <Button className="bg-white text-[var(--color-azul-escuro)] border-1 border-gray-300">
-                                Cancelar
-                            </Button>
-                        </Link>
-                        <Button>Próximo</Button>
+                        <Button className="bg-white text-[var(--color-azul-escuro)] border-1 border-gray-300">
+                            <Link href="/analisedocs">Cancelar</Link>
+                        </Button>
+
+                        <Button><Link href="/analiseupload">Próximo</Link></Button>
                     </div>
                 </div>
                 <div className="flex-1" />

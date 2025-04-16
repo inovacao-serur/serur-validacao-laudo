@@ -1,10 +1,27 @@
+"use client"
 import Navbar from "@/components/customComponents/Navbar";
 import Image from "next/image";
 import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { useDados } from "@/context/DadosContext";
 
 export default function AnaliseDocs() {
+
+    const {
+        rg,
+        setRg,
+        cnh,
+        setCnh,
+        assinatura,
+        setAssinatura,
+        endereco,
+        setEndereco,
+        selfie,
+        setSelfie,
+        isFisica
+    } = useDados();
+
     return (
         <>
             <Navbar />
@@ -57,7 +74,11 @@ export default function AnaliseDocs() {
                         <div className="border-1 border-gray-300 w-full rounded-md">
 
                             <div className="flex items-center py-1 pl-1">
-                                <Checkbox id="terms" />
+                                <Checkbox
+                                    id="rg"
+                                    checked={rg}
+                                    onCheckedChange={setRg}
+                                />
                                 <label
                                     htmlFor="terms"
                                     className="text-sm pl-2">
@@ -71,7 +92,11 @@ export default function AnaliseDocs() {
                         <div className="border-1 border-gray-300 w-full rounded-md">
 
                             <div className="flex items-center py-1 pl-1">
-                                <Checkbox id="terms" />
+                                <Checkbox
+                                    id="cnh"
+                                    checked={cnh}
+                                    onCheckedChange={setCnh}
+                                />
                                 <label
                                     htmlFor="terms"
                                     className="text-sm pl-2">
@@ -86,7 +111,11 @@ export default function AnaliseDocs() {
                         <div className="border-1 border-gray-300 w-full rounded-md">
 
                             <div className="flex items-center py-1 pl-1">
-                                <Checkbox id="terms" />
+                                <Checkbox
+                                    id="assinatura"
+                                    checked={assinatura}
+                                    onCheckedChange={setAssinatura}
+                                />
                                 <label
                                     htmlFor="terms"
                                     className="text-sm pl-2">
@@ -101,7 +130,11 @@ export default function AnaliseDocs() {
                         <div className="border-1 border-gray-300 w-full rounded-md">
 
                             <div className="flex items-center py-1 pl-1">
-                                <Checkbox id="terms" />
+                                <Checkbox
+                                    id="endereco"
+                                    checked={endereco}
+                                    onCheckedChange={setEndereco}
+                                />
                                 <label
                                     htmlFor="terms"
                                     className="text-sm pl-2">
@@ -113,31 +146,36 @@ export default function AnaliseDocs() {
 
                         </div>
 
-                        <div className="border-1 border-gray-300 w-full rounded-md">
+                       {!isFisica ? (
+                         <div className="border-1 border-gray-300 w-full rounded-md">
 
-                            <div className="flex items-center py-1 pl-1">
-                                <Checkbox id="terms" />
-                                <label
-                                    htmlFor="terms"
-                                    className="text-sm pl-2">
-                                    Selfie
-                                </label>
-                            </div>
-                            <p className="text-sm ml-3 mb-3 text-gray-500 pl-4">Fotos com documentos (apenas para formalização digital)</p>
+                         <div className="flex items-center py-1 pl-1">
+                             <Checkbox
+                                 id="selfie"
+                                 checked={selfie}
+                                 onCheckedChange={setSelfie}
+                             />
+                             <label
+                                 htmlFor="terms"
+                                 className="text-sm pl-2">
+                                 Selfie
+                             </label>
+                         </div>
+                         <p className="text-sm ml-3 mb-3 text-gray-500 pl-4">Fotos com documentos (apenas para formalização digital)</p>
 
 
-                        </div>
+                     </div>
+                       ) : <></>}
 
 
                     </div>
 
                     <div className="w-full flex justify-between items-center mt-7 border-t-1 border-t-gray-300 pb-3 pt-2">
-                        <Link href="/analise">
                             <Button className="bg-white text-[var(--color-azul-escuro)] border-1 border-gray-300">
-                                Cancelar
+                                <Link href="/analise">Cancelar</Link>
                             </Button>
-                        </Link>
-                        <Button>Próximo</Button>
+                        
+                        <Button><Link href="/analiseinfo">Próximo</Link></Button>
                     </div>
                 </div>
                 <div className="flex-1" />
