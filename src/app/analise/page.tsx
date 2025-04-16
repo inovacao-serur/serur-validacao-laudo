@@ -7,8 +7,12 @@ import Link from "next/link";
 import { useState } from "react";
 import { useDados } from "@/context/DadosContext";
 
+
+
 export default function Analise() {
-    const { isFisica, setIsFisica} = useDados()
+    const { isFisica, setIsFisica } = useDados()
+    const [ isChecked, setIsChecked ]= useState<boolean | null>(null)
+ 
     return (
         <>
             <Navbar />
@@ -65,7 +69,10 @@ export default function Analise() {
                                     id="no"
                                     name="option"
                                     className="appearance-none w-3 h-3 rounded-full border-1 border-black checked:bg-black checked:border-black"
-                                    onClick={() => setIsFisica(true)}
+                                    onClick={() => {
+                                        setIsFisica(true)
+                                        setIsChecked(true)
+                                    }}
                                 />
                                 <label
                                     htmlFor="no"
@@ -86,7 +93,10 @@ export default function Analise() {
                                     id="no"
                                     name="option"
                                     className="appearance-none w-3 h-3 rounded-full border-1 border-black checked:bg-black checked:border-black"
-                                    onClick={() => setIsFisica(false)}
+                                    onClick={() => {
+                                        setIsFisica(false)
+                                        setIsChecked(true)
+                                    }}
                                 />
                                 <label
                                     htmlFor="no"
@@ -106,7 +116,7 @@ export default function Analise() {
                                 Cancelar
                             </Button>
                         </Link>
-                        <Button><Link href="/analisedocs">Próximo</Link></Button>
+                        <Button disabled={isChecked === null}><Link href="/analisedocs">Próximo</Link></Button>
                     </div>
                 </div>
                 <div className="flex-1" />

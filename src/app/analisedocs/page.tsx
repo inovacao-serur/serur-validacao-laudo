@@ -22,6 +22,8 @@ export default function AnaliseDocs() {
         isFisica
     } = useDados();
 
+    const marcado = rg || cnh || assinatura || endereco || selfie;
+
     return (
         <>
             <Navbar />
@@ -175,7 +177,7 @@ export default function AnaliseDocs() {
                                 <Link href="/analise">Cancelar</Link>
                             </Button>
                         
-                        <Button><Link href="/analiseinfo">Próximo</Link></Button>
+                        <Button disabled={marcado === false}><Link href="/analiseinfo">Próximo</Link></Button>
                     </div>
                 </div>
                 <div className="flex-1" />

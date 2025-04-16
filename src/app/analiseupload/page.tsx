@@ -12,16 +12,10 @@ export default function AnaliseUpload() {
 
        const {
             rg,
-            setRg,
             cnh,
-            setCnh,
             assinatura,
-            setAssinatura,
             endereco,
-            setEndereco,
             selfie,
-            setSelfie,
-            isFisica
         } = useDados();
 
     type FileType = {
