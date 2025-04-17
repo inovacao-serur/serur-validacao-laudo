@@ -341,9 +341,6 @@ export default function Dashboard() {
 
     const { data: session, status } = useSession();
 
-    console.log(session)
-    console.log(status)
-
     useEffect(() => {
         async function fetchData() {
             const data = await getData()
